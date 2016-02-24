@@ -12,9 +12,21 @@ This workshop is about how to use UniFrac in R. It was presented at the Reid/Bur
 
 ### Downloading
 
+Here are three different ways to put these files on your computer.
+
+#### Downloading from the web
+
+#### Downloading using GitHub Desktop
+
+#### Downloading using GitHub on the command line
+
 ### Running
 
-## Troubleshooting
+#### Example code
+
+#### Customizing the example code
+
+### Troubleshooting
 
 When you're getting an error
 
