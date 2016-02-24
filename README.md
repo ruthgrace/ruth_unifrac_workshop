@@ -1,5 +1,3 @@
-# ruth_unifrac_workshop
-
 # UniFrac workshop
 
 This workshop is about how to use UniFrac in R. It was presented at the Reid/Burton/Gloor lab Data Club on February 29, 2016.
