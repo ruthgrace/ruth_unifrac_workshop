@@ -4,7 +4,7 @@
 
 This workshop is about how to use UniFrac in R. It was presented at the Reid/Burton/Gloor lab Data Club on February 29, 2016.
 
-## What is UniFrac
+## UniFrac
 
 ### Original (Unweighted) UniFrac
 
@@ -24,7 +24,7 @@ link to plos manuscript
 
 link to plos manuscript
 
-## Different types of UniFrac
+## When to use different types of UniFrac
 
 ## Using the scripts
 
