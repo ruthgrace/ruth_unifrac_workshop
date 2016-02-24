@@ -6,6 +6,24 @@ This workshop is about how to use UniFrac in R. It was presented at the Reid/Bur
 
 ## What is UniFrac
 
+### Original (Unweighted) UniFrac
+
+cite lozupone
+
+include image
+
+### Weighted UniFrac
+
+cite lozupone
+
+### Exponent UniFrac
+
+link to plos manuscript
+
+### Ratio UniFrac
+
+link to plos manuscript
+
 ## Different types of UniFrac
 
 ## Using the scripts
