@@ -36,6 +36,16 @@ Here are three different ways to put these files on your computer.
 
 #### Downloading using GitHub on the command line
 
+### Installing
+
+Running the UniFrac script requires an installation of R. You will also need the packages phangorn, zCompositions, and vegan, which you can install from CRAN as follows inside R. Pick a CRAN mirror when prompted (on my computer sometimes it takes a minute for this dialog to pop up).
+
+```
+install.packages("phangorn")
+install.packages("zCompositions")
+install.packages("vegan")
+```
+
 ### Running
 
 #### Example code
