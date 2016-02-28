@@ -131,4 +131,6 @@ When it's taking forever
 * Make sure that all the taxa that you have in your count table and your phylogenetic tree are necessary for your analysis.
  * The scripts work well if you have a couple hundred taxa, but if you have a couple thousand, you may want to filter out the taxa that are less than 1% abundant in every sample.
 
-If you're really super stuck, make an issue on GitHub (Issues tab > New Issue). Good luck!
+If you're really super stuck, make an issue on GitHub (Issues tab > New Issue), and I'll take a look when I have time. Good luck!
+
+Ruth
