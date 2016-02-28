@@ -63,13 +63,21 @@ Here are three different ways to put these files on your computer.
 
 #### Downloading from the web
 
-#### Downloading using GitHub Desktop
+Click the Download ZIP button, unzip the folder, and now you have all the files!
 
 #### Downloading using GitHub on the command line
 
+Alternatively, you can use GitHub desktop. I've never used it, but I've heard it's really great and user friendly.
+
+Here is how you can clone my files onto your computer using your command line/terminal. Windows users will need to do this using [Git Bash](https://git-for-windows.github.io/). Change to the directory you want to work in, and run the following command:
+
+```
+git clone https://github.com/ruthgrace/ruth_unifrac_workshop.git
+```
+
 ### Installing
 
-Running the UniFrac script requires an installation of R. You will also need the packages phangorn, zCompositions, and vegan, which you can install from CRAN as follows inside R. Pick a CRAN mirror when prompted (on my computer sometimes it takes a minute for this dialog to pop up).
+Running the UniFrac script requires [an installation of R](https://www.r-project.org/). You will also need the packages phangorn, zCompositions, and vegan, which you can install from CRAN as follows inside R. Pick a CRAN mirror when prompted (on my computer sometimes it takes a minute for this dialog to pop up).
 
 ```
 install.packages("phangorn")
@@ -96,5 +104,4 @@ When you're getting an error
  * names(myDataFrame) will show you what the column and row names are, so you can make sure it makes sense
  * summary(myVector) will show you where the minimum, maximum, median, mean, and first and 3rd quartile of your data are.
  
-
-
+If you're really super stuck, make an issue on GitHub (Issues tab > New Issue). Good luck!
