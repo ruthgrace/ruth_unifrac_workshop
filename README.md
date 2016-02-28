@@ -72,6 +72,7 @@ When you're getting an error
  * str(myDataFrame) will show you what's inside your R things
  * head(myDataFrame) and tail(myDataFrame) can be used to check the beginning and the end
  * names(myDataFrame) will show you what the column and row names are, so you can make sure it makes sense
+ * summary(myVector) will show you where the minimum, maximum, median, mean, and first and 3rd quartile of your data are.
  
 
 
