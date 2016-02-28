@@ -12,7 +12,7 @@ UniFrac is the distance between two microbiome samples. To calculate UniFrac, yo
 
 ![Unweighted UniFrac](images_for_README/unifrac.png)
 
-To calculate unweighted UniFrac, you take the branches of the phylogenetic tree that are not shared between the two samples and and divide that by the total branch lengths.
+To calculate unweighted UniFrac, you take the branches of the phylogenetic tree that are not shared between the two samples and and divide that by the total branch lengths. ** Note that you should rarefy your data to the same sequencing depth for unweighted UnIFrac **
 
 ### Weighted UniFrac
 
@@ -49,6 +49,7 @@ Ratio UniFrac is calculated as follows:
 You should use all of them!
 
 * Unweighted UniFrac is good at showing you when you have low level trends, usually indicative of some sort of contaminant. See the barcode example in the slides, where the samples separate according to which row of the 96 well plate they were on.
+ * Don't forget to rarefy your data to the same sequencing depth for unweighted UniFrac!
 * Weighted UniFrac is the classic tool used in a lot of microbiome research. If you use any of the below methods, you should also use weighted for comparison. Weighted UniFrac shows you separation proportional to abundance differences for taxa between samples.
 * Information UniFrac takes into account the abundance evenness of the whole sample, and can differentiate some outliers missed by classically weighted UniFrac.
 * Ratio UniFrac takes into account the baseline abundance of taxa, and can also differentiate some outliers missed by classically weighted UniFrac.
@@ -89,7 +90,28 @@ install.packages("vegan")
 
 #### Example code
 
+You can run the example code all at once in R like so (make sure your working directory is the same one as the example script, or else include the full file path rather than just the file name):
+
+```
+source("example_script.r")
+```
+
+You can also run it line by line by pasting the lines in R, and using the commands in the troubleshooting section to see what's going on with the different data structures.
+
 #### Customizing the example code
+
+I have included one example of customizing `example_script.r` in the form of `tongue_tongue_script.r`, which uses a subset of tongue samples from the [Human Microbiome Project](http://hmpdacc.org/). The script `get_comparison_data_from_hmp_set.r` extracts the samples from the full HMP [count table](http://downloads.hmpdacc.org/data/HMQCP/otu_table_psn_v35.txt.gz) and [phylogenetic tree](http://downloads.hmpdacc.org/data/HMQCP/rep_set_v35.tre.gz).
+
+The `tongue_tongue_script.r` includes the following optimizations/changes.
+
+* filters out all operational taxonomic units (OTUs) which are not at least 1% abundant in at least 1 sample (otherwise there are thousands and thousands of OTUs)
+ * also removes the removed OTUs from the phylogenetic tree
+* Calculates all the distance matrices (with the exception of Unweighted UniFrac, which is done separately as it requires rarefied data) using this command:
+```
+all_distance_matrices <- getDistanceMatrix(otu.tab,tree,method="all",verbose=TRUE)
+```
+* Removes all the taxonomy groups code. That code is useful if you want to highlight samples which are more than 50% one taxa (as is the case in the default vaginal data set, where several samples are dominated by different _Lactobacillus_)
+* Changes the names of the output files to start with `tongue_tongue_` to differentiate them from the example output. You can also direct the output to a different folder.
 
 ### Troubleshooting
 
@@ -103,5 +125,10 @@ When you're getting an error
  * head(myDataFrame) and tail(myDataFrame) can be used to check the beginning and the end
  * names(myDataFrame) will show you what the column and row names are, so you can make sure it makes sense
  * summary(myVector) will show you where the minimum, maximum, median, mean, and first and 3rd quartile of your data are.
- 
+
+When it's taking forever
+
+* Make sure that all the taxa that you have in your count table and your phylogenetic tree are necessary for your analysis.
+ * The scripts work well if you have a couple hundred taxa, but if you have a couple thousand, you may want to filter out the taxa that are less than 1% abundant in every sample.
+
 If you're really super stuck, make an issue on GitHub (Issues tab > New Issue). Good luck!
