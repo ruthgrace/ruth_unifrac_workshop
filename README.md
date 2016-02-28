@@ -104,8 +104,8 @@ I have included one example of customizing `example_script.r` in the form of `to
 
 The `tongue_tongue_script.r` includes the following optimizations/changes.
 
-* filters out all operational taxonomic units (OTUs) which are not at least 1% abundant in at least 1 sample (otherwise there are thousands and thousands of OTUs)
- * also removes the removed OTUs from the phylogenetic tree
+* Filters out all operational taxonomic units (OTUs) which are not at least 1% abundant in at least 1 sample (otherwise there are thousands and thousands of OTUs)
+ * Also removes the removed OTUs from the phylogenetic tree
 * Calculates all the distance matrices (with the exception of Unweighted UniFrac, which is done separately as it requires rarefied data) using this command:
 ```
 all_distance_matrices <- getDistanceMatrix(otu.tab,tree,method="all",verbose=TRUE)
@@ -117,10 +117,10 @@ all_distance_matrices <- getDistanceMatrix(otu.tab,tree,method="all",verbose=TRU
 
 When you're getting an error
 
-* look at your data
- * sometimes a previous step messed up and now your data is all NA or NaN
- * sometimes you've run a filter that's too aggressive and now most of your data is gone
-* run things line by line, checking the results as you go along
+* Look at your data
+ * Sometimes a previous step messed up and now your data is all NA or NaN
+ * Sometimes you've run a filter that's too aggressive and now most of your data is gone
+* Run things line by line, checking the results as you go along
  * str(myDataFrame) will show you what's inside your R things
  * head(myDataFrame) and tail(myDataFrame) can be used to check the beginning and the end
  * names(myDataFrame) will show you what the column and row names are, so you can make sure it makes sense
