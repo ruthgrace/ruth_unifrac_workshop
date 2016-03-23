@@ -211,7 +211,7 @@ getDistanceMatrix <- function(otuTable,tree,method="weighted",verbose=FALSE,prun
 	# add priors to zeros based on bayesian approach
 	otuTable.adjustedZeros <- cmultRepl(otuTable, method="CZM", output="counts")
   # make any negative numbers as close to zero as possible - this is probably due to a precision error.
-  otuTable.adjustedZeros[which(otuTable.adjustedZeros < 0)] <- .Machine$double.eps
+  otuTable.adjustedZeros <- apply(otuTable.adjustedZeros,2,function(x) { x[which(x < 0)] <- .Machine$double.eps; return(x) })
   readsPerSample <- apply(otuTable.adjustedZeros,1,sum)
   otu.prop.adjustedZeros <- otuTable.adjustedZeros/readsPerSample
   otu.prop.adjustedZeros <- as.matrix(otu.prop.adjustedZeros)
